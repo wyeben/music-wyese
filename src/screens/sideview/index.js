@@ -11,12 +11,14 @@ import apiClient from '../../Spotify';
 
 export default function Sidebar() {
   const [image, setImage] = useState(
-    '../src/doc/Images/adrian-korte-5gn2soeAc40-unsplash'
+    ''
   )
   useEffect(() => {
     apiClient.get('me').then(response =>{
-      setImage(response.data.image[0].url)})
-  },[])
+      const imageUrl = response.data.images[0]?.url || '';
+      setImage(imageUrl);
+    });
+  },[]);
   return (
     <div className='sidebar-container'>
       <img src={image} 
@@ -30,5 +32,5 @@ export default function Sidebar() {
       </div>
       <SideButton title='Sign Out' to='' icon={<FaSignOutAlt/>}/>
     </div>
-  )
+  );
 }
