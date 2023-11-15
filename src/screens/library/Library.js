@@ -4,14 +4,14 @@ import './Library.css';
 
 export default function Library() {
 
-  const [playlists, setPlaylists] = useState(null);
+  const [playlists, setPlaylists] = useState('');
   useEffect(() => {
     // const accessToken = window.location.hash.substring(1).split('&')[0].split('=')[1];
     const accessToken = JSON.stringify(localStorage.getItem("token"));
     console.log('Access Token:', accessToken);
 
     setClientToken(accessToken);
-  APIKit.get('me/playlists').then(function(response) {
+    APIKit.get('me/playlists').then(function(response) {
     console.log('API Response:', response);
 
     setPlaylists(response.data.items);

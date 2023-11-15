@@ -6,7 +6,7 @@ export default function Login() {
   return (
      <div className='login-page'>
         <img 
-        src='../src/doc/Images/adrian-korte-5gn2soeAc40-unsplash'
+        src='./src/doc/Images/adrian-korte-5gn2soeAc40-unsplash.jpg'
         alt='longin-spotify'
         className='logon'></img>
         <a href={loginEndpoint}>
